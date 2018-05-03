@@ -22,9 +22,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
   res.render('maintenance.hbs');
-})
+}) */
 
 hbs.registerHelper('getCurrentYear', () => {
   return new Date().getFullYear();
@@ -36,14 +36,20 @@ hbs.registerHelper('screamIt', (text) => {
 
 app.get('/', (req, res) => {
   res.render('home.hbs', {
-    pageTitle: 'Page first',
-    welcomeMessage: `hey guy's !`
+    pageTitle: 'Home Page',
+    welcomeMessage: 'Welcome to my website'
   });
 });
 
 app.get('/about', (req, res) => {
   res.render('about.hbs', {
     pageTitle: 'about page'
+  });
+});
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Projects'
   });
 });
 
